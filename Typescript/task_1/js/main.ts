@@ -56,17 +56,17 @@ interface Teacher {
      };
  
      workOnHomework(): string {
-         return 'Currently not working'
+         return 'Currently working'
      };
  
-     displatName(): string {
+     displayName(): string {
          return this.firstName
      }
  }
  
  let s = new StudentClass("who", "me")
  console.log(s.workOnHomework());
- console.log(s.displatName());
+ console.log(s.displayName());
  
  console.log(printTeacher(teacher3.firstName, teacher3.lastName))
    
