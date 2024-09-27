@@ -69,8 +69,8 @@ export function teachClass(todayClass: Subjects): string {
     }
 }
 
-let d1: Director = new Director();
-let t1: Teacher = new Teacher();
+let d1: InstanceType<typeof Director> = new Director();
+let t1: InstanceType<typeof Teacher> = new Teacher();
 
 executeWork(createEmployee(200));
 executeWork(createEmployee(1000));
