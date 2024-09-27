@@ -10,7 +10,7 @@ interface TeacherInterface {
     workTeacherTasks(): string;
 };
 
-class Director implements DirectorInterface {
+export const Director = class Director implements DirectorInterface {
     workFromHome(): string {
         return "Working from home";
     }
@@ -24,7 +24,7 @@ class Director implements DirectorInterface {
     }
 }
 
-class Teacher implements TeacherInterface {
+export const Teacher = class Teacher implements TeacherInterface {
     workFromHome(): string {
         return "Cannot work from home";
     }
@@ -38,7 +38,7 @@ class Teacher implements TeacherInterface {
     }
 }
 
-function createEmployee(salary: number | string): Director | Teacher {
+export function createEmployee(salary: number | string): DirectorInterface | TeacherInterface {
     if (typeof salary === 'number' && salary < 500) {
         return new Teacher();
     } else {
@@ -46,23 +46,23 @@ function createEmployee(salary: number | string): Director | Teacher {
     }
 }
 
-function isDirector(employee: Teacher | Director): boolean {
-    return employee instanceof Director;
+export function isDirector(employee: DirectorInterface | TeacherInterface): employee is DirectorInterface {
+    return (employee as DirectorInterface).workDirectorTask !== undefined;
 }
 
-function executeWork(employee: Teacher | Director): void{
-    if (employee instanceof Director) {
-        console.log(employee.workDirectorTask());
+export function executeWork(employee: DirectorInterface | TeacherInterface): string{
+    if (isDirector(employee)) {
+        return employee.workDirectorTask();
     } else {
-        console.log(employee.workTeacherTasks());
+        return employee.workTeacherTasks();
     }
 }
 
-type Subjects = "Math" | "History";
+export type Subjects = 'Math' | 'History';
 
-function teachClass(todayClass: Subjects): string {
+export function teachClass(todayClass: Subjects): string {
     if (todayClass === 'Math') {
-        return "Teaching Math";
+        return 'Teaching Math';
     } 
     else if (todayClass === 'History') {
         return 'Teaching History';
