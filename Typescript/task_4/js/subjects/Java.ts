@@ -4,13 +4,13 @@ namespace Subjects {
     }
     export class Java extends Subject {
         getRequirements() {
-            return "Here is the list of requirements for Java";
+            return 'Here is the list of requirements for Java';
         }
         getAvailableTeacher() {
-            if (this.teacher.experienceTeachingJava !== null) {
-                return `Available Teacher: ${this.teacher.experienceTeachingJava}`;
+            if (this.teacher && this.teacher.experienceTeachingJava > 0) {
+                return 'Available Teacher: ' + this.teacher.firstName;
             } else {
-                return "No available teacher";
+                return 'No available teacher';
             }
         }
     }
