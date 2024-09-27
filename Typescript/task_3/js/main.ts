@@ -1,12 +1,24 @@
-/// <reference path="./crud.d.ts"/>
-import {RowID, RowElement} from './interface';
-let CRUD = require("./crud");
-const row: RowElement = {
-    firstName: "Guillaume",
-    lastName: "Salva"
-}
+import { RowID, RowElement } from './interface';
+const CRUD = require('./crud');
 
-const newRowId: RowID = CRUD.insertRow(row);
-const updatedRow: RowElement = { firstName: "Guillaume", lastName: "Salva", age: 23};
-CRUD.updateRow(newRowId, updatedRow);
-CRUD.deleteRow(newRowId);
+// Create an object of type RowElement
+const row: RowElement = {
+  firstName: 'Guillaume',
+  lastName: 'Salva'
+};
+
+// Insert a new row and get the newRowID
+const newRowID: RowID = CRUD.insertRow(row);
+
+// Create an updated row with age field set to 23
+const updatedRow: RowElement = {
+  firstName: 'Guillaume',
+  lastName: 'Salva',
+  age: 23
+};
+
+// Update the row with the newRowID
+CRUD.updateRow(newRowID, updatedRow);
+
+// Delete the row using newRowID
+CRUD.deleteRow(newRowID);
