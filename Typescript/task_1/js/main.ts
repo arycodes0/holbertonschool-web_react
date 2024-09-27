@@ -37,13 +37,13 @@ export interface Teacher {
  }
  
  
- interface StudentClassInterface {
+ export interface StudentClassInterface {
      firstName: string;
      lastName: string;
      workOnHomework(): string;
      displayName(): string;
  }
- interface StudentConstructor {
+ export interface StudentConstructor {
      new (firstName: string, lastName: string): StudentClassInterface;
  }
  class StudentClass {
